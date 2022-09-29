@@ -1,0 +1,5 @@
+file = open('multi_line.txt', 'w')
+file.write('This is a line of text.\n')
+file.write('This is a new line!\n')
+file.write('So is this.')
+file.close()
