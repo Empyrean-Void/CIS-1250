@@ -56,40 +56,42 @@ def calc_agian():
     distance = haversine(origin, destination)
     distance_mile = distance * KM_TO_MILE
 
-    print('\nThe distance to destination is:\n\n{distance:.2f} km\n{distance_mile:.2f} miles')
+    print(
+        '\nThe distance to destination is:\n\n{distance:.2f} km\n{distance_mile:.2f} miles')
+
 
 # Main #
+if __name__ == "__main__":
 
+    # Display welcome message
+    header()
 
-# Display welcome message
-header()
+    # Get location input from user
+    print('\n# Please enter starting point information #\n')
+    origin = get_location()
 
-# Get location input from user
-print('\n# Please enter starting point information #\n')
-origin = get_location()
+    print('\n# Please enter destination point information #\n')
+    destination = get_location()
 
-print('\n# Please enter destination point information #\n')
-destination = get_location()
+    # Calculate distance
+    distance = haversine(origin, destination)
+    distance_mile = distance * KM_TO_MILE
 
-# Calculate distance
-distance = haversine(origin, destination)
-distance_mile = distance * KM_TO_MILE
+    print(f'\nThe distance to destination is:\n\n{distance:.2f} km\n{distance_mile:.2f} miles\n')
 
-print('\nThe distance to destination is:\n\n{distance:.2f} km\n{distance_mile:.2f} miles\n')
+    # Loop program
+    run_again = ''
 
-# Loop program
-run_again = ''
+    while run_again != 'n':
+        # <- Make input case insensitive and enable default option
+        run_again = input('Run calculator again (y/n): ').lower() or 'y'
 
-while run_again != 'n':
-    # <- Make input case insensitive and enable default option
-    run_again = input('Run calculator again (y/n): ').lower() or 'y'
+        if run_again == 'y':
+            calc_agian()
 
-    if run_again == 'y':
-        calc_agian()
+        elif run_again == 'n':
+            print('\nExiting...')
+            break
 
-    elif run_again == 'n':
-        print('\nExiting...')
-        break
-
-    else:
-        print(f'{run_again} is not a valid option!')
+        else:
+            print(f'{run_again} is not a valid option!')

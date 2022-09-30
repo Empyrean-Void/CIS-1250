@@ -67,40 +67,41 @@ def display_score():
 def display_exit():
     print('\nThank you for playing Rock Paper Scissors Ultimate!')
 
+
 # Main #
+if __name__ == "__main__":
 
+    # Print welcome message
+    display_header()
 
-# Print welcome message
-display_header()
+    # TODO: Setup score tracking
+    user_wins = 0
+    computer_wins = 0
 
-# TODO: Setup score tracking
-user_wins = 0
-computer_wins = 0
+    # while user_wins or computer_wins < 3:
 
-# while user_wins or computer_wins < 3:
+    # Allow multiple rounds
+    do_another = 'y'
 
-# Allow multiple rounds
-do_another = 'y'
+    while do_another == 'y':
+        # Get move from user
+        user_choice = get_user_choice()
 
-while do_another == 'y':
-    # Get move from user
-    user_choice = get_user_choice()
+        # Get move from computer
+        computer_choice = get_computer_choice()
 
-    # Get move from computer
-    computer_choice = get_computer_choice()
+        # Display moves
+        display_choices(user_choice, computer_choice)
 
-    # Display moves
-    display_choices(user_choice, computer_choice)
+        # Determine round winner
+        determine_winner(user_choice, computer_choice)
 
-    # Determine round winner
-    determine_winner(user_choice, computer_choice)
+        # Increment user score if user wins else increment computer score
+        # user_wins += 1
+        # computer_wins += 1
 
-    # Increment user score if user wins else increment computer score
-    # user_wins += 1
-    # computer_wins += 1
+        # Set default option to yes
+        do_another = input('\nPlay again (y/n)? ').lower() or 'y'
 
-    # Set default option to yes
-    do_another = input('\nPlay again (y/n)? ').lower() or 'y'
-
-# Print exit message
-display_exit()
+    # Print exit message
+    display_exit()

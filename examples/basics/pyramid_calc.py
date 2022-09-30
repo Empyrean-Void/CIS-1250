@@ -1,15 +1,39 @@
-# Display header
-print(f'\nWelcome to Pyramid Calculator\nVersion 1.0\n')
+# Functions #
+def header():
+    print('\nWelcome to Pyramid Calculator\nVersion 1.0\n')
 
-# Get input from user
-base = float(input('Enter pyramid base (in meters): '))
-height = float(input('Enter pyramid height(in meters): '))
 
-# Get volume of pyramid
-volume = (base **2 * height)/3
+def get_base():
+    base = float(input('Enter pyramid base (in meters): '))
 
-# Display results
-print(f'\nPyramid volume is {volume:.2f} cubic meters')
+    return base
 
-# Display exit message
-print(f'\nExiting...')
+
+def get_height():
+    height = float(input('Enter pyramid height(in meters): '))
+
+    return height
+
+
+def get_pyramid_volume(base, height):
+    volume = (base ** 2 * height)/3
+
+    return volume
+
+
+def display_volume(volume):
+    print(f'The pyramid volume is {volume:.2f} meters cubed.')
+
+
+if __name__ == "__main__":
+    header()
+
+    # Get user input
+    base = get_base()
+    height = get_height()
+
+    # Calculate pyramid volume
+    volume = get_pyramid_volume(base, height)
+
+    # Display volume to user
+    display_volume(volume)
