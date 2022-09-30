@@ -1,8 +1,3 @@
-# ShortzP1
-# Programmer: Jonah Shortz
-# Email: jshortz@cnm.edu
-# Purpose: Calculate distance between two geographical points
-
 # Imports #
 from math import sin, cos, atan2, sqrt, radians
 
