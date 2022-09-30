@@ -1,8 +1,3 @@
-# Project 2
-# Programmer: Jonah Shortz
-# Email: jshortz@cnm.edu
-# Purpose: Play Rock Paper Scissors
-
 # Imports #
 
 from random import randint  # Generate random number for computer choice
