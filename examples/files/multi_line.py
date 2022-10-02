@@ -16,15 +16,8 @@ def num_of_lines():
 
     return line_count
 
-
-def write_lines(file, line, line_count):
-    file.write(line)
-
-
 # Main #
 if __name__ == "__main__":
     file = open_file()
     line = get_line()
     line_count = num_of_lines()
-
-    write_lines(file, line, line_count)
