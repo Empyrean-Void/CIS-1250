@@ -36,27 +36,56 @@ def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         print('\nTie!')
 
+        round_winner = 'tie'
+
     elif user_choice == 'rock':
         if computer_choice == 'paper':
             print(f'\nComputer picked {computer_choice}... You Lose!')
+
+            round_winner = 'computer'
         else:
             print(f'\nComputer picked {computer_choice}... You Win!')
+
+            round_winner = 'user'
 
     elif user_choice == 'paper':
         if computer_choice == 'scissors':
             print(f'\nComputer picked {computer_choice}... You Lose!')
+
+            round_winner = 'computer'
         else:
             print(f'\nComputer picked {computer_choice}... You Win!')
+
+            round_winner = 'user'
 
     elif user_choice == 'scissors':
         if computer_choice == 'rock':
             print(f'\nComputer picked {computer_choice}... You Lose!')
+
+            round_winner = 'computer'
+
         else:
             print(f'\nComputer picked {computer_choice}... You Win!')
 
+            round_winner = 'user'
 
-def display_score():
-    pass
+    return round_winner
+
+
+def get_computer_score():
+    computer_score = 0
+
+    return computer_score
+
+
+def get_user_score():
+    user_score = 0
+
+    return user_score
+
+
+def display_score(computer_score, user_score):
+    print(f'\nComputer score: {computer_score} | User score: {user_score}')
 
 
 def display_exit():
@@ -69,16 +98,14 @@ if __name__ == "__main__":
     # Print welcome message
     display_header()
 
-    # TODO: Setup score tracking
-    user_wins = 0
-    computer_wins = 0
-
-    # while user_wins or computer_wins < 3:
-
     # Allow multiple rounds
     do_another = 'y'
 
-    while do_another == 'y':
+    computer_score = get_computer_score()
+
+    user_score = get_user_score()
+
+    while True:
         # Get move from user
         user_choice = get_user_choice()
 
@@ -89,14 +116,29 @@ if __name__ == "__main__":
         display_choices(user_choice, computer_choice)
 
         # Determine round winner
-        determine_winner(user_choice, computer_choice)
+        round_winner = determine_winner(user_choice, computer_choice)
 
-        # Increment user score if user wins else increment computer score
-        # user_wins += 1
-        # computer_wins += 1
+        # Keep score
+        if round_winner == 'computer':
+            computer_score += 1
 
-        # Set default option to yes
-        do_another = input('\nPlay again (y/n)? ').lower() or 'y'
+        elif round_winner == 'user':
+            user_score += 1
+
+        else:
+            print('\nRound was a tie, score unchanged.')
+
+        display_score(computer_score, user_score)
+
+        if user_score == 3:
+            print('\nYou win!')
+
+            break
+
+        if computer_score == 3:
+            print('\nGame over! Better luck next time...')
+
+            break
 
     # Print exit message
     display_exit()
