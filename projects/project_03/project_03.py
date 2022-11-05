@@ -1,26 +1,25 @@
 # Functions #
+
+# Print welcome message
 def display_header():
-    print('''#########################
-              \n Welcome to Point Wiki!
-              \n#########################\n''')
+    print('Welcome to Point Wiki!')
 
 
+# Print exit message
 def display_exit():
-    print('''\n#################################
-        \nThank you for using Point Wiki!
-        \n#################################''')
+    print('\nThank you for using Point Wiki!')
 
 
+# Print user selections
 def display_menu():
-    print('''(O)pen a point file
+    print('''\n(O)pen a point file
           \nDisplay a point's (I)nformation
           \n(A)dd a point
           \n(R)emove a point
           \n(E)dit a point
           \n(F)ind closest point
           \n(S)ave point file
-          \n(Q)uit Point Wiki
-          \n###############################''')
+          \n(Q)uit Point Wiki''')
 
 
 def get_user_choice():
@@ -29,32 +28,36 @@ def get_user_choice():
     return choice
 
 
-def open_file(points_of_interest):
+def open_file(points):
+    file = open('output/points.txt', 'w')
+
+    return file
+
+
+def display_point_info(points):
+    key_term = input('\nEnter a point name: ').title()
+
+    print(f'\n{key_term} is located at: {points[key_term]}\n')
+
+
+def add_point(points):
     pass
 
 
-def display_point_info(points_of_interest):
+def remove_point(points):
     pass
 
 
-def add_point(points_of_interest):
+def find_closet_point(points):
     pass
 
 
-def remove_point(points_of_interest):
+def edit_point(points):
     pass
 
 
-def find_closet_point(points_of_interest):
-    pass
-
-
-def edit_point(points_of_interest):
-    pass
-
-
-def save_file(points_of_interest):
-    pass
+def save_file(points, file):
+    file.write(points)
 
 
 # Main #
@@ -64,32 +67,34 @@ if __name__ == "__main__":
     while True:
         display_menu()
 
-        points_of_interest = None
+        points = {'Albuqurque': (35.0844, 106.6504),
+                  'Santa Fe': (35.6870, 105.9378)
+                  }
 
         choice = get_user_choice()
 
         if choice == 'O':
-            open_file(points_of_interest)
+            open_file(points)
 
         elif choice == 'I':
-            display_point_info(points_of_interest)
+            display_point_info(points)
 
         elif choice == 'A':
-            add_point(points_of_interest)
+            add_point(points)
 
         elif choice == 'R':
             confirm = input('Are you sure? (y/N): ').lower() or 'n'
 
             if choice == 'n':
-                remove_point(points_of_interest)
+                remove_point(points)
 
         elif choice == 'F':
-            find_closet_point(points_of_interest)
+            find_closet_point(points)
 
         elif choice == 'S':
-            save_file(points_of_interest)
+            save_file(points)
 
-        elif choice == 'Q':
+        elif choice == 'Q' or 'exit':
             break
 
         else:
