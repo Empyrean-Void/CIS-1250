@@ -217,7 +217,7 @@ if __name__ == "__main__":
             remove_point(points)
 
         elif choice == 'F':
-            find_closet_point(points)
+            find_closest_point(points)
 
         elif choice == 'S':
             save_file(points)

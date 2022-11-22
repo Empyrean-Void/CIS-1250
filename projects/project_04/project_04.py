@@ -1,9 +1,11 @@
+# Imports #
 from math import radians, sqrt, cos, sin, atan2
 
-
+# Constants #
 RADIUS = 6371
 
 
+# Classes #
 class PointWiki:
     Id = 0
     city = ""
@@ -12,6 +14,7 @@ class PointWiki:
     desc = ""
 
 
+# Functions #
 def get_point_from_user():
     point = PointWiki()
     point.city = input('Enter city name: ')
@@ -72,6 +75,7 @@ def read_points_from_file():
         if not line:
             break
 
+        # Get point info
         elements = line.split('\t')
         point = PointWiki()
         point.Id = int(elements[0])
