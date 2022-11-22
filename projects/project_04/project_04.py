@@ -1,3 +1,9 @@
+from math import radians, sqrt, cos, sin, atan2
+
+
+RADIUS = 6371
+
+
 class PointWiki:
     Id = 0
     city = ""
@@ -78,11 +84,62 @@ def read_points_from_file():
     return points
 
 
+def edit_point(points):
+    display_points(points)
+
+    get_point = int(input('Select a city to edit (ex. 1): ')) - 1
+
+    point = points[get_point]
+
+    city = point.city
+    lat = point.lat
+    lon = point.lon
+    desc = point.desc
+
+    point.insert(0, city)
+    point.insert(1, lat)
+    point.insert(2, lon)
+    point.insert(3, desc)
+
+    points.insert(get_point, point)
+    points.pop(get_point - 1)
+
+    return points
+
+
+def get_distance(points):
+    get_point = int(input('Select a city: (ex. 1): ')) - 1
+
+    point = points[get_point]
+
+    if get_point < len(point):
+        get_next_point = get_point + 1
+
+    else:
+        get_next_point = get_point - 1
+
+    next_point = points[get_next_point]
+
+    origin_lat = point[1]
+    destination_lat = next_point[1]
+
+    lat = point[1] - next_point[1]
+    lon = point[2] - next_point[2]
+
+    a = sin(radians(lat) / 2) ** 2 + cos(radians(origin_lat)) * \
+        cos(radians(destination_lat)) * sin(radians(lon) / 2) ** 2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    distance = RADIUS * c
+
+    return distance
+
+
 if __name__ == "__main__":
     points = []
     while True:
         display_points(points)
-        choice = input("(A)dd, (D)isplay, (S)ave, (O)pen, (Q)uit: ")[0].upper()
+        choice = input("(A)dd, (D)isplay, (S)ave, (O)pen, (F)ind point, (Q)uit: ")[
+            0].upper()
         if choice == 'A':
             get_points_from_user(points)
         if choice == 'D':
@@ -94,6 +151,8 @@ if __name__ == "__main__":
             save_points_to_file(points)
         elif choice == 'O':
             points = read_points_from_file()
+        elif choice == 'F':
+            get_distance(points)
         elif choice == 'Q':
             break
         else:
