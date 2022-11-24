@@ -10,7 +10,8 @@ btn_bg_color = "#313244"
 fg_color = "#cdd6f4"
 
 # Fonts #
-font_1 = ("Arial", 14)
+font_btn = ("Arial", 14)
+font_box = ("Arial", 20)
 
 # Functions #
 
@@ -50,7 +51,7 @@ if __name__ == "__main__":
     root = tk.Tk()
 
     root.title("Py Calc")
-    root.geometry("315x205")
+    root.geometry("315x245")
     root.configure(bg=bg_color)
 
     # Text Box #
@@ -61,9 +62,9 @@ if __name__ == "__main__":
         bg=bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        height=1,
+        height=2,
         width=20,
-        font=font_1)
+        font=font_box)
     text_result.grid(columnspan=5)
 
     # Buttons #
@@ -73,7 +74,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(1), width=5, font=font_1)
+        command=lambda: add_to_calculation(1), width=5, font=font_btn)
     btn_1.grid(row=2, column=1)
 
     btn_2 = tk.Button(
@@ -82,7 +83,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(2), width=5, font=font_1)
+        command=lambda: add_to_calculation(2), width=5, font=font_btn)
     btn_2.grid(row=2, column=2)
 
     btn_3 = tk.Button(
@@ -91,7 +92,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(3), width=5, font=font_1)
+        command=lambda: add_to_calculation(3), width=5, font=font_btn)
     btn_3.grid(row=2, column=3)
 
     btn_4 = tk.Button(
@@ -100,7 +101,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(4), width=5, font=font_1)
+        command=lambda: add_to_calculation(4), width=5, font=font_btn)
     btn_4.grid(row=3, column=1)
 
     btn_5 = tk.Button(
@@ -109,7 +110,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(5), width=5, font=font_1)
+        command=lambda: add_to_calculation(5), width=5, font=font_btn)
     btn_5.grid(row=3, column=2)
 
     btn_6 = tk.Button(
@@ -118,7 +119,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(6), width=5, font=font_1)
+        command=lambda: add_to_calculation(6), width=5, font=font_btn)
     btn_6.grid(row=3, column=3)
 
     btn_7 = tk.Button(
@@ -127,7 +128,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(7), width=5, font=font_1)
+        command=lambda: add_to_calculation(7), width=5, font=font_btn)
     btn_7.grid(row=4, column=1)
 
     btn_8 = tk.Button(
@@ -136,7 +137,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(8), width=5, font=font_1)
+        command=lambda: add_to_calculation(8), width=5, font=font_btn)
     btn_8.grid(row=4, column=2)
 
     btn_9 = tk.Button(
@@ -145,7 +146,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(9), width=5, font=font_1)
+        command=lambda: add_to_calculation(9), width=5, font=font_btn)
     btn_9.grid(row=4, column=3)
 
     btn_0 = tk.Button(
@@ -154,7 +155,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(0), width=5, font=font_1)
+        command=lambda: add_to_calculation(0), width=5, font=font_btn)
     btn_0.grid(row=5, column=2)
 
     btn_plus = tk.Button(
@@ -163,7 +164,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation("+"), width=5, font=font_1)
+        command=lambda: add_to_calculation("+"), width=5, font=font_btn)
     btn_plus.grid(row=2, column=4)
 
     btn_sub = tk.Button(
@@ -172,7 +173,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation("-"), width=5, font=font_1)
+        command=lambda: add_to_calculation("-"), width=5, font=font_btn)
     btn_sub.grid(row=3, column=4)
 
     btn_mult = tk.Button(
@@ -181,7 +182,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation("*"), width=5, font=font_1)
+        command=lambda: add_to_calculation("*"), width=5, font=font_btn)
     btn_mult.grid(row=4, column=4)
 
     btn_div = tk.Button(
@@ -190,7 +191,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation("/"), width=5, font=font_1)
+        command=lambda: add_to_calculation("/"), width=5, font=font_btn)
     btn_div.grid(row=5, column=4)
 
     btn_lper = tk.Button(
@@ -199,7 +200,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation("("), width=5, font=font_1)
+        command=lambda: add_to_calculation("("), width=5, font=font_btn)
     btn_lper.grid(row=5, column=1)
 
     btn_rper = tk.Button(
@@ -208,7 +209,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=lambda: add_to_calculation(")"), width=5, font=font_1)
+        command=lambda: add_to_calculation(")"), width=5, font=font_btn)
     btn_rper.grid(row=5, column=3)
 
     btn_eq = tk.Button(
@@ -217,7 +218,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=evaluate_calculation, width=13, font=font_1)
+        command=evaluate_calculation, width=13, font=font_btn)
     btn_eq.grid(row=6, column=3, columnspan=2)
 
     btn_c = tk.Button(
@@ -226,7 +227,7 @@ if __name__ == "__main__":
         bg=btn_bg_color,
         fg=fg_color,
         highlightbackground=btn_bg_color,
-        command=clear_field, width=13, font=font_1)
+        command=clear_field, width=13, font=font_btn)
     btn_c.grid(row=6, column=1, columnspan=2)
 
     root.mainloop()
